@@ -12,15 +12,18 @@ import { bootstrapApplication } from '@angular/platform-browser';
       <select name="testSelect" id="selectForm" (change)="changeMe($event)">
         <option *ngFor="let city of countries" value={{city}}>{{city}}</option>
       </select>
+      {{displayCity}}
     </form>
   `,
 })
 export class App {
   name = 'Angular';
   countries = ['India', 'China', 'Russia', 'USA', 'UK'];
+  displayCity = '';
 
   changeMe(evt: any) {
     console.log(evt.target.value);
+    this.displayCity = evt.target.value;
   }
 }
 
